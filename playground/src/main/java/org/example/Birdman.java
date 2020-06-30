@@ -1,20 +1,23 @@
 package org.example;
 
+/**
+ * using Object wait/notify in synchronized block
+ */
 public class Birdman {
 
     public static void main(String[] args) {
         Object feeder = new Object();
 
-        Thread bird1 = new Thread(new Bird("tweety", feeder));
-        Thread bird2 = new Thread(new Bird("birdy", feeder));
-        Thread bird3 = new Thread(new Bird("elemelek", feeder));
+        Bird bird1 = new Bird("tweety", feeder);
+        Bird bird2 = new Bird("birdy", feeder);
+        Bird bird3 = new Bird("elemelek", feeder);
 
-        bird1.start();
-        bird2.start();
-        bird3.start();
+        Farmer farmer = new Farmer(feeder);
 
-        Thread farmer = new Thread(new Farmer(feeder));
-        farmer.start();
+        new Thread(bird1).start();
+        new Thread(bird2).start();
+        new Thread(bird3).start();
+        new Thread(farmer).start();
     }
 
     static class Bird implements Runnable {
