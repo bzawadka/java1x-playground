@@ -1,6 +1,7 @@
 package org.example;
 
 /**
+ * intra-thread communication - feeding birds
  * using Object wait/notify in synchronized block
  */
 public class Birdman {

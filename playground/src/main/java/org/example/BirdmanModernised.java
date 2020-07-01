@@ -5,6 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * intra-thread communication - feeding birds
  * using Lock instead of synchronized
  * using Condition wait/signal instead of Object wait/notify
  */
